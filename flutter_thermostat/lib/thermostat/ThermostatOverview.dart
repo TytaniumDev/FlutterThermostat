@@ -25,20 +25,40 @@ class ThermostatOverview extends StatelessWidget {
         }
 
         if (i < 15) {
-          return Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            mainAxisSize: MainAxisSize.max,
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Text(
-                  'Remote Temperature Sensors go here',
-                  style: Theme.of(context).primaryTextTheme.body1,
-                ),
-              ),
-            ],
+          return ListTile(
+            title: Text(
+              'Remote Temperature Sensors go here!',
+              style: Theme.of(context).primaryTextTheme.body2,
+            ),
+            subtitle: Text(
+              'Insights go here',
+              style: Theme.of(context).accentTextTheme.body1,
+            ),
+            trailing: Icon(
+              Icons.radio_button_unchecked,
+              color: Colors.white,
+            ),
+            onTap: () {
+              showModalBottomSheet(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return Container(
+                      color: Colors.white,
+                      width: double.infinity,
+                      height: 200.0,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text('Suck it Native Android',
+                              style: TextStyle(fontSize: 24.0)),
+                          Text('(and iOS)',
+                              style: TextStyle(fontSize: 18.0)),
+                        ],
+                      ),
+                    );
+                  });
+            },
           );
-          //AAG
         }
       }),
     );
